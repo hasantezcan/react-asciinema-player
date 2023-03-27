@@ -2,7 +2,16 @@ name: Deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -10,9 +19,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    permissions:
-      pages: write
-      id-token: write
+
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -24,10 +31,13 @@ jobs:
         run: npm ci
       - name: build app
         run: npm run build-storybook
-      - name: upload artifact
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./storybook-static
-      - name: deploy to github pages
+          # Upload entire repository
+          path: "./storybook-static"
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
