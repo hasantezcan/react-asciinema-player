@@ -1,0 +1,53 @@
+{
+  "name": "react-asciinema-player",
+  "version": "1.0.3",
+  "type": "module",
+  "files": [
+    "build",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./build/react-asciinema-player.umd.cjs",
+  "module": "./build/react-asciinema-player.js",
+  "types": "./build/AsciinemaPlayer.d.ts",
+  "exports": {
+    ".": {
+      "import": "./build/react-asciinema-player.js",
+      "require": "./build/react-asciinema-player.umd.cjs"
+    },
+    "./style.css": "./build/style.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "storybook": "start-storybook -p 6006",
+    "prepublishOnly": "npm run build",
+    "build-storybook": "build-storybook"
+  },
+  "peerDependencies": {
+    "@types/react": "^17.0.0 || ^18.0.0",
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/builder-vite": "^0.4.2",
+    "@storybook/react": "^6.5.16",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/node": "^18.15.10",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "babel-loader": "^8.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0",
+    "vite-plugin-dts": "^2.1.0"
+  }
+}
