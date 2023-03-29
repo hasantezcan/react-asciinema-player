@@ -22,7 +22,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "export NODE_OPTIONS=--openssl-legacy-provider && build-storybook -o public/style-guide",
+    "build-storybook": "export NODE_OPTIONS=--openssl-legacy-provider && build-storybook",
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
